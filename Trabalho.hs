@@ -84,8 +84,10 @@ primos x y = [ z | z<-[x..y], fatores z == [1,z]]
 --Ex8
 mdc :: Int -> Int -> Int
 mdc m 0 = m
-mdc m n = mdc n (mod m n)
-
+mdc m n 
+    | mdc m >= n = mdc n ( mod m n)
+    | otherwise = mdc n m
+    
 mmc2 :: Int -> Int -> Int
 mmc2 a b = div (a * b) (mdc a b)
 
