@@ -155,6 +155,7 @@ ultimasMsgs contact msgs = take 2 [(Msg c m d h a) | (Msg c m d h a) <- msgOrd, 
     msgOrd = ordenaDataHora msgs
 
 --Ex9)
+
 data ArvBinInt
   = Nulo
   | No Int ArvBinInt ArvBinInt
@@ -164,18 +165,14 @@ arvDados :: ArvBinInt
 arvDados =
   No
     4
-    (No 2 Nulo Nulo)
+    (No 3 Nulo Nulo)
     ( No
         10
-        (No 5 Nulo Nulo)
-        (No 15 Nulo Nulo)
+        (No 7 Nulo Nulo)
+        (No 12 Nulo Nulo)
     )
 
-{-- ArvDados é essa
-         4
-      2     10
-          5   15
---}
+
 --A)
 internos :: ArvBinInt -> [Int]
 internos Nulo = []
@@ -186,16 +183,15 @@ internos (No n esq dir) = [n] ++ internos esq ++ internos dir
 somaNos :: ArvBinInt -> Int
 somaNos Nulo = 0
 somaNos (No n Nulo Nulo) = n --no folha
-somaNos (No n esq dir) = n + somaNos esq + somaNos dir --soma n com a soma dos filhos da dir e da esq
+somaNos (No n esq dir) = n + somaNos esq + somaNos dir 
 --C)
 
 pertenceArv :: Int -> ArvBinInt -> Bool
 pertenceArv _ Nulo = False
-pertenceArv x (No v esq dir) =
-  x == v --compara o valor com o no
-    || if x < v --escolhe pra qual lado da arvore vai
-      then (pertenceArv x esq)
-      else (pertenceArv x dir)
+pertenceArv x (No v esq dir) 
+ | x == v = True
+ | x < v = pertenceArv x esq
+ | otherwise = pertenceArv x dir
 
 --Ex 10
 data ArvBinEA a
