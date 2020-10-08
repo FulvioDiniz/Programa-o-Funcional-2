@@ -21,9 +21,21 @@ equacao a b c
   y = (-b- sqrt d)/(2*a)
   d = (b^2)-(4*a*c)
   p = -c/b
-
-  --Ex 3
   
+ --Ex 3
+bissexto:: Int -> Bool
+bissexto x
+    |(mod x 4) == 0 && (mod x 100) /= 0 ||(mod x 400) == 0 = True
+    |otherwise = False
+type Data = (Int,Int,Int)
+
+bissexto2:: Data -> Bool
+bissexto2 (d,m,a)
+    |d>=1 && d<=31 && (m == 1 || m == 3 || m == 5 || m == 7 || m ==8 || m == 10 || m == 12) && (bissexto a == True) = True
+    |d>=1 && d<=30 && ( m == 4 || m == 6 || m == 9 || m == 11) && (bissexto a == True) = True
+    |d>=1 && d<= 29 && (bissexto a == True) = True
+    |otherwise = False
+
 valida:: Data -> Bool
 valida (d,m,a)
     |d>=1 && d<=31 && (m == 1 || m == 3 || m == 5 || m == 7 || m ==8 || m == 10 || m == 12) && (bissexto a == True) = True
