@@ -173,7 +173,7 @@ casadas i x = [(n2, a2, i2, e2) | (n2, a2, i2, e2) <- x, i2 >= i, e2 == 'C']
 
 --16
 insere_ord :: Ord a => a -> [a] -> [a]
-insere_ord _ [] = []
+insere_ord a [] = [a]
 insere_ord elmnt (x:xs) = if (elmnt > x) then [x] ++ (insere_ord elmnt xs) else [elmnt] ++ (x:xs)
 
 --17
