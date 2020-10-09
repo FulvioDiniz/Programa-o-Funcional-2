@@ -1,11 +1,11 @@
 -Alunos
 
---Fulvio Diniz Santos 11811BCC033 e Victor Guilherme
+--Fulvio Diniz Santos 11811BCC033
 
 data Exp a
-  = Val a -- um numero
-  | Add (Exp a) (Exp a) -- soma de duas expressoes
-  | Sub (Exp a) (Exp a) --subtração
+  = Val a
+  | Add (Exp a) (Exp a) 
+  | Sub (Exp a) (Exp a)
   | Mult (Exp a) (Exp a)
   | Pot (Exp a) (Exp a)
 
