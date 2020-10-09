@@ -1,5 +1,6 @@
 -Alunos
---Fulvio 
+
+--Fulvio Diniz Santos 11811BCC033 e Victor Guilherme
 
 data Exp a
   = Val a -- um numero
@@ -203,11 +204,7 @@ data ArvBinEA a
 arvEA :: ArvBinEA Float
 arvEA = NoEA ('+', NoEA ('*', Folha 10, Folha 5), Folha 7)
 
-{--
-       +
-     *   7
-   10 5
---}
+
 
 calculaArv :: (Fractional a, Integral a) => ArvBinEA a -> a
 calculaArv Vazia = 0
